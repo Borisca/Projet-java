@@ -1,0 +1,17 @@
+package arraylist.maison;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		MyArrayList list=new MyArrayList();
+		
+		
+		list.add("Bob");
+		list.add("Bill");
+
+		
+		System.out.println(list.get(0));
+	}
+
+}

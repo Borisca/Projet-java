@@ -1,0 +1,51 @@
+import java.util.Comparator;
+
+public class Contact implements Comparable<Contact>{
+
+	private String nom, prenom;
+	private String numeroTel;
+
+	public Contact(String nom, String prenom, String numeroTel) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numeroTel = numeroTel;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getNumeroTel() {
+		return numeroTel;
+	}
+
+	public void setNumeroTel(String numeroTel) {
+		this.numeroTel = numeroTel;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Nom : %s Prenom : %s  Numero de telephone : %s\n", this.nom, this.prenom, this.numeroTel);
+	}
+
+	@Override
+	public int compareTo(Contact o) {
+
+		return o.getNom().compareTo(this.getNom());
+	}
+	
+
+}

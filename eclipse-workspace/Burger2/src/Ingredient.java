@@ -1,0 +1,43 @@
+
+public enum Ingredient {
+
+	CESTTOUT("Ca sera tout"),FROMAGE("Fromage",1),FRITES("Frites",1),BOISSON("Soda",2), PAIN("Pain", 1), VIANDE("Viande", 4.95), SALADE("Salade", 0.50), TOMATE("Tomate",
+			0.75), NAVET("Navet", 0.35), CONCOMBRE("Concombre",
+					0.40), CORNICHON("Cornichon", 0.95), PAINSEIGLE("Pain au Seigle", 1.25);
+
+	String nom;
+	double prix;
+
+	private Ingredient(String nom) {
+		this.nom = nom;
+	}
+	private Ingredient(String nom, double prix) {
+		this.nom = nom;
+		this.prix = prix;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	@Override
+	public String toString() {
+
+		if( this.prix!=0) {
+			return String.format("%s a %.2f €", this.nom, this.prix);
+		}else return String.format("%s", this.nom);
+	}
+
+}

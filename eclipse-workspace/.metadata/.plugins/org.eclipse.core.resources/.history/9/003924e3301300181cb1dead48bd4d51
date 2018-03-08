@@ -1,0 +1,75 @@
+package arraylist.maison;
+
+import java.util.AbstractList;
+
+public class MyArrayList extends AbstractList {
+
+	private Object[] list;
+	private Object[] listTemp;
+	public MyArrayList() {
+
+	}
+
+	public boolean add(Object obj) {
+
+		if (list == null) {
+			listTemp = new Object[1];
+			listTemp[0]=obj;
+			list=listTemp;
+			return true;
+		}else
+			listTemp = new Object[list.length + 1];
+
+		for (int i = 0; i < list.length; i++) {
+			listTemp[i] = list[i];
+		}
+
+		listTemp[list.length] = obj;
+		list = listTemp;
+
+		return true;
+
+	}
+
+	public Object get(int i) {
+
+		return list[i];
+	}
+
+	public int size() {
+		
+		return list.length;
+	}
+	
+	
+	public boolean remove(Object obj) {
+		
+		for (int i = 0; i < list.length; i++) {
+			if(list[i].equals(obj)) {		
+				echange(i);		
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	private void echange(int i) {
+
+		listTemp=new Object [list.length-1];
+		
+		for (int j = 0; j < list.length; j++) {
+			if(j<i) {
+				listTemp[j]=list[j];			
+			}else if (j>i) {
+				listTemp[j]=list[j];	
+			}
+		}
+		
+		list=listTemp;
+		
+		
+	}
+	
+
+}

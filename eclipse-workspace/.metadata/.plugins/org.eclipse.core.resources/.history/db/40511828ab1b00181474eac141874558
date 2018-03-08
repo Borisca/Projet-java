@@ -1,0 +1,26 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class MyAction implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		JButton bouton;
+		bouton = (JButton) arg0.getSource();
+		switch (bouton.getText()) {
+		case "Classique Burger":
+			Hamburger h = new HamburgerClassic();
+			break;
+		case "Healthy Burger":
+			Hamburger i = new HealthyBurger();
+			break;
+		case "Deluxe Burger":
+			Hamburger j = new DeluxeBurger();
+			break;
+		}
+
+	}
+
+}

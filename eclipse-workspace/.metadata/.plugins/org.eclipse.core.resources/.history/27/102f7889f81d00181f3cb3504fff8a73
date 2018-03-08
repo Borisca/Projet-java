@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class MatriceJeu {
+	Controller control;
+	private Integer[][] matrice;
+	static int tracker=0;
+	
+	public MatriceJeu(Controller control) {
+		this.control=control;
+		matrice = new Integer[9][9];
+		for (int i = 0; i < matrice.length; i++) {
+			for (int j = 0; j < matrice.length; j++) {
+				matrice[i][j] = 0;
+			}
+
+		}
+
+	}
+
+	public Integer[][] getMatrice() {
+		return matrice;
+	}
+
+	public void setMatrice(Integer[][] matrice) {
+		this.matrice = matrice;
+	}
+
+	public boolean initMatrice(int x, int y, int chiffre) {
+		this.matrice[x][y] = chiffre;
+
+		return true;
+
+	}
+
+	public List<Integer> solve(int i, int j) {
+
+		
+		List<Integer> tampon = new ArrayList<>();
+
+		for (int k = 0; k < 9; k++) {
+
+			if (test(i, j, k)) {
+				tampon.add(k);
+			}
+		}
+
+		return tampon;
+
+	}
+
+	public boolean test(int x, int y, int chiffre) {
+
+		// TEST LIGNE ET COLONNE
+		for (int i = 0; i < matrice.length; i++) {
+			if (matrice[x][i] == chiffre) {
+				return false;
+			}
+			if (matrice[i][y] == chiffre) {
+				return false;
+			}
+		}
+
+		// TestSousTableau
+		for (int i = testPositionSousTableau(x); i < testPositionSousTableau(x)+3; i++) {
+			for (int j = testPositionSousTableau(y); j < testPositionSousTableau(y)+3; j++) {
+				if (matrice[i][j] == chiffre && (i != x && j != y)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	private int testPositionSousTableau(int coordonnee) {
+
+		int intervalle1 = 0;
+		int intervalle2 = 3;
+		int intervalle3 = 6;
+
+		if (coordonnee <= 2)
+			return intervalle1;
+		if (coordonnee <= 5)
+			return intervalle2;
+		return intervalle3;
+
+	}
+
+}

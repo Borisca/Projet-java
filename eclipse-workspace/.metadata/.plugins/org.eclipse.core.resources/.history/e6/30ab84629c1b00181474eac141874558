@@ -1,0 +1,14 @@
+
+public class HealthyBurger extends HamburgerClassic{
+
+	nom = "Healthy Burger";
+	
+	public HealthyBurger() {
+		super();
+		compteurInstance = -2;
+		this.removeIngredients(Ingredient.PAIN);
+		this.addIngredients(Ingredient.PAINSEIGLE);
+	}
+	
+	
+}

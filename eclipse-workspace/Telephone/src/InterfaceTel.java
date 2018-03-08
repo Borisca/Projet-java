@@ -1,0 +1,14 @@
+
+public interface InterfaceTel {
+
+	boolean stocker(String nom, String prenom, String numero);
+
+	boolean modifier(String ancienNom, String ancienPrenom, String nouveauNom, String nouveauPrenom,
+			String nouveauNumero);
+
+	boolean supprimer(String nom, String prenom);
+
+	Contact interroger(String nom, String prenom);
+
+	void affichageMenu();
+}

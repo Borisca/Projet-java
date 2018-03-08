@@ -1,0 +1,67 @@
+package calcul.salaire;
+
+public class Permanent extends Employe{
+
+	private double salaireFixe;
+
+	public Permanent(String nom, String prenom, String numSS, double salaireFixe) {
+		super(nom, prenom, numSS);
+		this.salaireFixe = salaireFixe;
+	}
+
+	public Permanent() {
+		super();
+	}
+	
+	
+
+	protected double calculerSalaire() {
+		
+		return salaireFixe;
+	}
+
+	public double getsalaireFixe() {
+		return salaireFixe;
+	}
+
+	public void setsalaireFixe(double salaireFixe) {
+		this.salaireFixe = salaireFixe;
+	}
+
+	@Override
+	public String toString() {
+		
+		return super.toString()+"Salaire Mensuel: "+ this.calculerSalaire()+"\n Payé: "+ this.calculerSalaire();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(salaireFixe);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Permanent other = (Permanent) obj;
+		if (Double.doubleToLongBits(salaireFixe) != Double.doubleToLongBits(other.salaireFixe))
+			return false;
+		return true;
+	}
+
+	
+	
+	
+	
+	
+	
+}

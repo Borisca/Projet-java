@@ -1,0 +1,13 @@
+package objet;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		Rectangle rec=new Rectangle(2, 3);
+		
+		rec.afficherPerimetre();
+		rec.afficherSurface();
+
+	}
+
+}

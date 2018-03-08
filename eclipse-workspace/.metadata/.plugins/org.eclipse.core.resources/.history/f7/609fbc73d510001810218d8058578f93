@@ -1,0 +1,23 @@
+package objet;
+
+public class Rectangle2{
+
+	int largeur,hauteur;
+	
+	Rectangle2(int largeur,int hauteur){
+		this.largeur=largeur;
+		this.hauteur=hauteur;
+		
+	}
+	
+	
+	int afficherPerimetre() {
+		return(this.largeur+this.hauteur)*2;
+	}
+	
+	int afficherSurface() {
+		return this.largeur*this.hauteur;
+	}
+
+	
+}

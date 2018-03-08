@@ -1,0 +1,14 @@
+
+public class Controller {
+
+	private AffichageMatrice display;
+	private MatriceJeu matrice;
+
+	public Controller() {
+
+		display=new AffichageMatrice();
+		matrice=new MatriceJeu();
+		
+	}
+
+}

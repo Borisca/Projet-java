@@ -1,0 +1,12 @@
+package calcul.salaire;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Employe perm = new Permanent("Bond", "James", "154165656541", 2500);
+
+		System.out.println(perm.toString());
+		
+	}
+
+}

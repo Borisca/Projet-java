@@ -1,0 +1,8 @@
+package calcul.salaire;
+
+public abstract class Commercial {
+	
+	protected String nom,prenom,numSS;
+	
+
+}

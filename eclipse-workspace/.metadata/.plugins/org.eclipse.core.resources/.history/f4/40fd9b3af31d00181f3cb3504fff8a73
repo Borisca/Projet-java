@@ -1,0 +1,19 @@
+import javax.swing.JOptionPane;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+
+		double prixUnitaire, tVA, prixTTC,prixHT;
+		int nbArticle;
+
+		prixUnitaire = Double.parseDouble(JOptionPane.showInputDialog("Entrer prix unitaire"));
+		nbArticle = Integer.parseInt(JOptionPane.showInputDialog("Entrer nombre d'article"));
+		tVA = Double.parseDouble(JOptionPane.showInputDialog("Entrer TVA"));
+		prixHT=prixUnitaire*nbArticle;
+		prixTTC=(prixHT)*(1+tVA/100);
+		
+		System.out.println(String.format("Le prix unitaire de l'article est %.2f\n Le rpix total hors taxe est %.2f\n la TVA est de %.3f  . Le total TTC est de %.2f",prixUnitaire,prixHT,tVA,prixTTC ));
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class DeluxeBurger extends Hamburger{
+
+	
+	public DeluxeBurger() {
+		super();
+		this.addIngredients(Ingredient.FROMAGE,Ingredient.FRITES,Ingredient.CORNICHON,Ingredient.BOISSON,Ingredient.PAINSEIGLE);
+		this.setPrixTotal(this.getPrixTotal()-2);
+	}
+}

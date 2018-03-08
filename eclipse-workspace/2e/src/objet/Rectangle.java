@@ -1,0 +1,23 @@
+package objet;
+
+public class Rectangle{
+
+	int largeur,hauteur;
+	
+	Rectangle(int largeur,int hauteur){
+		this.largeur=largeur;
+		this.hauteur=hauteur;
+		
+	}
+	
+	
+	void afficherPerimetre() {
+		System.out.println((this.largeur+this.hauteur)*2);
+	}
+	
+	void afficherSurface() {
+		System.out.println(this.largeur*this.hauteur);
+	}
+
+	
+}

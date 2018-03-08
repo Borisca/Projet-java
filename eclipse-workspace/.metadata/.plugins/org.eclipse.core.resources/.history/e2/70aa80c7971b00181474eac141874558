@@ -1,0 +1,22 @@
+
+public class lanceur {
+
+	public static void main(String[] args) {
+		Burger b = Burger.CLASSIC;
+
+		Burger bd=Burger.DELUXE;
+		b.addIngredient(Ingredient.VIANDE);
+		b.addIngredient(Ingredient.SALADE);
+		b.addIngredient(Ingredient.VIANDE);
+		b.addIngredient(Ingredient.VIANDE);
+		b.addIngredient(Ingredient.VIANDE);
+		b.addIngredient(Ingredient.VIANDE);
+		bd.choisirIngredient();
+		
+		System.out.println(b);
+		
+		System.out.println(bd);
+
+	}
+
+}

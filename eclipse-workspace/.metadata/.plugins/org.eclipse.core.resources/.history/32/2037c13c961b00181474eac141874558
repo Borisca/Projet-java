@@ -1,0 +1,74 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JComboBox;
+
+public enum Burger {
+
+	CLASSIC("Classic"),
+	HEALTHY_BURGER("Healthy"), 
+	DELUXE("Deluxe",Ingredient.TOMATE, Ingredient.SALADE);
+
+	Ingredient [] listIngredients= {Ingredient.PAIN,Ingredient.PAIN,Ingredient.PAIN,Ingredient.PAIN,Ingredient.PAIN};
+	
+	private JComboBox jCB=new JComboBox(listIngredients);
+
+	private int compteurInstance = 0;
+
+	private List<Ingredient> ingredients;
+
+	private double prixTotal;
+
+	private Burger(String nom,Ingredient... ing) {
+
+			ingredients = new ArrayList<>();
+			ingredients.add(Ingredient.PAIN);
+			ingredients.add(Ingredient.VIANDE);
+			for (Ingredient ingredient : ing) {
+				ingredients.add(ingredient);
+			}	
+		
+	}
+
+	public void choisirIngredient() {
+		//JOptionPane.input
+	}
+	
+	public void addIngredient(Ingredient ing) {
+		if (compteurInstance < 4) {
+			this.getIngredients().add(ing);
+		}else System.err.println("Vous ne pouvez plus rajouter d'ingredients!!");
+		compteurInstance++;
+	}
+
+	public void removeIngredients(Ingredient ing) {
+		this.getIngredients().remove(ing);
+	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+
+	@Override
+	public String toString() {
+
+		StringBuilder burger = new StringBuilder();
+		burger.append("Dans mon burger il y a \n");
+
+		for (Ingredient ingredient : this.getIngredients()) {
+			burger.append(ingredient.toString());
+			burger.append("\n");
+			prixTotal += ingredient.getPrix();
+		}
+		burger.append("Le prix total est de ");
+		burger.append(prixTotal);
+		burger.append("€\n");
+
+		return burger.toString();
+	}
+
+}

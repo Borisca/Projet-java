@@ -1,0 +1,68 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class Fenetre extends JFrame{
+
+	String[]nomBouton= {"Classique Burger","Healthy Burger","Deluxe Burger"};
+	String[]nomBoutonPayer= {"Payer","Ajouter Ingredients"};
+	JPanel panBoutonHamburger=new JPanel();
+	JButton[]boutonHamburger=new JButton[3];
+	JButton[] boutonPayer=new JButton[2];
+	JPanel payerIngredients=new JPanel();
+	JPanel note=new JPanel();
+	static JLabel noteEcrite=new JLabel();
+	JScrollPane scroller = new JScrollPane(noteEcrite, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	Fenetre (){
+		this.setVisible(true);
+		this.setSize(800, 600);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setLayout(new BorderLayout());
+		placerButtonHamburger();
+		placerButtonPayer();
+		this.add(panBoutonHamburger,BorderLayout.NORTH);
+		this.add(payerIngredients,BorderLayout.SOUTH);
+		noteEcrite.setSize(800,600);
+		note.setBackground(Color.WHITE);
+		note.add(noteEcrite);
+		this.add(note,BorderLayout.CENTER);
+		
+	}
+
+	private void placerButtonPayer() {
+	
+		for (int i = 0; i < nomBoutonPayer.length; i++) {
+			boutonPayer[i]=new JButton(nomBoutonPayer[i]);
+			payerIngredients.add(boutonPayer[i]);
+			boutonPayer[i].addActionListener(new MyAction());
+		}
+		payerIngredients.setBackground(Color.WHITE);
+		
+	}
+
+	private void placerButtonHamburger() {
+		for (int i = 0; i < boutonHamburger.length; i++) {
+			boutonHamburger[i]=new JButton(nomBouton[i]);
+			panBoutonHamburger.add(boutonHamburger[i]);
+			boutonHamburger[i].addActionListener(new MyAction());
+		}
+		panBoutonHamburger.setBackground(Color.white);
+	}
+
+	static void updateAffichage(List<Hamburger>ham) {
+		StringBuilder builder=new StringBuilder();
+		for (Hamburger hamburger : ham) {
+			builder.append(hamburger);
+		}
+		
+		noteEcrite.setText("<html>"+builder.toString()+"</html>");
+	}
+	
+}

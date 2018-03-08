@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;fyli&apos; to &apos;comparateur&apos;&#x0D;&#x0A;- Original project: &apos;6e&apos;&#x0D;&#x0A;- Original element: &apos;6e/src/fyli&apos;&#x0D;&#x0A;- Renamed element: &apos;6e/src/comparateur&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;fyli&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;fyli" name="comparateur" qualified="false" references="true" stamp="1520323449601" textual="false" version="1.0"/>
+</session>

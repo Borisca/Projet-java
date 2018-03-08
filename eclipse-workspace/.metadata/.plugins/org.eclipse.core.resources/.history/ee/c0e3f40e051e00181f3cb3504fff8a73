@@ -1,0 +1,167 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
+public class AffichageMatrice {
+
+	private Controller control;
+	private JFrame fenetre;
+	Byte[] nom = { null, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	JComboBox<Byte>[][] sudokuCase = new JComboBox[9][9];
+	JPanel[][] sudoCasePanel = new JPanel[9][9];
+	JLabel[][] sudoLabel = new JLabel[9][9];
+	private boolean init=true;
+	private JMenuBar menu=new JMenuBar();
+	private JMenu menuFile=new JMenu("File");
+	private JMenuItem menuInit=new JMenuItem("Init");
+	private JMenuItem menuSolve=new JMenuItem("Solve");
+	
+	public AffichageMatrice(Controller control) {
+		this.control=control;
+		fenetre = new JFrame();
+		fenetre.setVisible(true);
+		fenetre.setSize(1024, 780);
+		fenetre.setLocationRelativeTo(null);
+		fenetre.addWindowListener(new WindowListener() {
+
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+
+			}
+
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				System.exit(0);
+
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+		fenetre.setLayout(new GridLayout(9, 9));
+		setPanel();
+		setMenuBar();
+		fenetre.revalidate();
+		
+	}
+
+	private void setMenuBar() {
+		
+		menuSolve.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			control.controlSolve();
+				
+			}
+			
+		});
+		menuFile.add(menuInit);
+		menuFile.add(menuSolve);
+		menu.add(menuFile);
+
+		fenetre.setJMenuBar(menu);
+	}
+
+	void update(byte x, byte y, byte chiffre) {
+
+		sudoCasePanel[x][y].remove(sudokuCase[x][y]);
+		sudoLabel[x][y].setText(String.valueOf(chiffre));
+		sudoCasePanel[x][y].add(sudoLabel[x][y]);
+		sudoCasePanel[x][y].revalidate();
+
+	}
+
+	private void setPanel() {
+
+		for (byte i = 0; i < 9; i++) {
+			for (byte j = 0; j < 9; j++) {
+				sudoCasePanel[i][j] = new JPanel();
+				sudoCasePanel[i][j].setLayout(new GridLayout());
+				sudoCasePanel[i][j].setBackground(Color.WHITE);
+
+				
+				sudokuCase[i][j] = new JComboBox<>();
+				sudokuCase[i][j].addActionListener(new Action());
+				sudoLabel[i][j] = new JLabel();
+				sudoLabel[i][j].setFont(new Font("calibri", 0, 40));
+				sudoLabel[i][j].setHorizontalAlignment(JLabel.CENTER);
+				sudoCasePanel[i][j].add(sudokuCase[i][j]);
+				fenetre.add(sudoCasePanel[i][j]);
+				for (byte k = 0; k <= 9; k++) {
+					sudokuCase[i][j].addItem(nom[k]);
+				}
+				if ((i==3||i==6)&&(j==2||j==5))
+					sudoCasePanel[i][j].setBorder(BorderFactory.createMatteBorder(3, 1, 1, 3, Color.BLACK));
+				else if (i == 3 || i == 6)
+					sudoCasePanel[i][j].setBorder(BorderFactory.createMatteBorder(3, 1, 1, 1, Color.BLACK));
+				else if (j == 2 || j == 5)
+					sudoCasePanel[i][j].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 3, Color.BLACK));
+				else
+					sudoCasePanel[i][j].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+
+			}
+		}
+		
+
+	}
+
+	public JComboBox<Byte>[][] getSudokuCase() {
+		return sudokuCase;
+	}
+
+	public void setSudokuCase(JComboBox<Byte>[][] sudokuCase) {
+		this.sudokuCase = sudokuCase;
+	}
+
+	public boolean isInit() {
+		return init;
+	}
+
+	public void setInit(boolean init) {
+		this.init = init;
+	}
+	
+
+}

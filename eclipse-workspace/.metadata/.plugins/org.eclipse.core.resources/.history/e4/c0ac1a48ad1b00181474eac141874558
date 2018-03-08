@@ -1,0 +1,37 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JButton;
+
+public class MyAction implements ActionListener {
+
+ List <Hamburger> b = new ArrayList<>();;
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		JButton bouton;
+		bouton = (JButton) arg0.getSource();
+		switch (bouton.getText()) {
+		case "Classique Burger":
+			b.add(new HamburgerClassic());
+			System.out.println(b.size());
+			break;
+		case "Healthy Burger":
+			b.add(new HealthyBurger());
+			break;
+		case "Deluxe Burger":
+			b.add(new DeluxeBurger());
+			break;
+		case "Payer":
+			b.get(b.size()-1).toString();
+			break;
+		case "Ajouter Ingredients":
+			b.get(b.size()-1).choisirIngredient();
+			break;
+		}
+		
+
+	}
+
+}

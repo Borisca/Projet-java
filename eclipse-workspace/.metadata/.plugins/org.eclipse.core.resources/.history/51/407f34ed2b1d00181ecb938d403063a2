@@ -1,0 +1,82 @@
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class AffichageMatrice {
+
+	
+	public static JFrame fenetre;
+	Integer[]nom={null,1,2,3,4,5,6,7,8,9};
+	JComboBox<Integer>[][]sudokuCase=new JComboBox[9][9];
+	JPanel[][]sudoCasePanel=new JPanel[9][9];
+	JLabel[][]sudoLabel=new JLabel[9][9];
+	MatriceJeu matrice;
+	private  int [][]tableauInt;
+	//boolean init=true;
+	
+	public AffichageMatrice() {
+		
+		fenetre = new JFrame();
+		matrice=new MatriceJeu();
+		
+		fenetre.setVisible(true);			
+		fenetre.setSize(1024, 780);
+		fenetre.setLocationRelativeTo(null);
+		fenetre.setLayout(new GridLayout(9,9));
+		setPanel();
+//		if (init) {
+//			setMatrice();
+//			}
+	}
+
+	static void updateMatrice() {
+	
+	}
+	
+	private void setMatrice() {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if(matrice.getMatrice()[i][j]!=0) {
+					sudoCasePanel[i][j].remove(sudokuCase[i][j]);
+					sudokuCase[i][j].setSelectedIndex(matrice.getMatrice()[i][j]);
+					sudoLabel[i][j].setText(String.valueOf(sudokuCase[i][j].getSelectedItem()));					
+					sudoCasePanel[i][j].add(sudoLabel[i][j]);
+					sudoCasePanel[i][j].revalidate();
+
+				}
+				
+			}
+		}
+		
+	}
+
+	private void setPanel() {
+		
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				sudoCasePanel[i][j]=new JPanel();
+				sudoCasePanel[i][j].setLayout(new GridLayout());
+				sudoCasePanel[i][j].setBackground(Color.WHITE);
+				sudoCasePanel[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+				sudokuCase[i][j]=new JComboBox<>();
+				sudokuCase[i][j].addActionListener(new Action(matrice,sudokuCase));
+				sudoLabel[i][j]=new JLabel();
+				sudoCasePanel[i][j].add(sudokuCase[i][j]);
+				fenetre.add(sudoCasePanel[i][j]);
+				for (int k = 0; k <= 9; k++) {
+					sudokuCase[i][j].addItem(nom [k]);
+				}			
+			}
+		}
+		
+	}
+	
+	
+	
+	
+}

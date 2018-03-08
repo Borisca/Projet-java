@@ -1,0 +1,44 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+
+public class Action implements ActionListener {
+
+	private static JComboBox<Integer> [][] sudokuCase;
+	private static Controller control;
+	
+
+
+
+	public Action(Controller controller) {
+
+		control=controller;
+		sudokuCase=control.getDisplay().getSudokuCase();
+	}
+
+	public Action() {	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		JComboBox<Integer> comboBox = (JComboBox<Integer>)arg0.getSource();
+		int x = 0,y = 0,chiffre=0;
+		chiffre=comboBox.getSelectedIndex();
+		
+		//CHECK SI VALEUR EST DIFFERENT DE NULL
+		if(chiffre!=-1) {
+		for (int i = 0; i < sudokuCase.length; i++) {
+			for (int j = 0; j < sudokuCase.length; j++) {
+				if(comboBox.equals(sudokuCase[i][j])) {
+					x=i;
+					y=j;
+				}
+			}
+		}
+		control.getMatrice().initMatrice(x, y, chiffre);
+		control.updateAffichage();		
+		}
+	}
+
+}

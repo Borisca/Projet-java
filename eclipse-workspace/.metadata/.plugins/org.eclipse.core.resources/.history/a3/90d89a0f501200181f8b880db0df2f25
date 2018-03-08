@@ -1,0 +1,5 @@
+package calcul.salaire;
+
+public class Employe {
+
+}

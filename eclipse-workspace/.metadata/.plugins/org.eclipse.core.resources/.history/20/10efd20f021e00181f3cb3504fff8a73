@@ -1,0 +1,93 @@
+public class MatriceJeu {
+	Controller control;
+	private Byte[][] matrice;
+	static int tracker=0;
+	
+	public MatriceJeu(Controller control) {
+		this.control=control;
+		matrice = new Byte[9][9];
+		for (byte i = 0; i < matrice.length; i++) {
+			for (byte j = 0; j < matrice.length; j++) {
+				matrice[i][j] = 0;
+			}
+
+		}
+
+	}
+
+	public Byte[][] getMatrice() {
+		return matrice;
+	}
+
+	public void setMatrice(Byte[][] matrice) {
+		this.matrice = matrice;
+	}
+
+	public boolean initMatrice(byte x, byte y, byte chiffre) {
+		this.matrice[x][y] = chiffre;
+
+		return true;
+
+	}
+
+	public byte solve(byte i, byte j) {
+
+		boolean trackerSolve=false;
+		byte tampon = 0;
+		System.out.println(++tracker+" || "+i+" "+j);
+		for (byte k = 1; k <= 9; k++) {
+
+			if (test(i, j, k)) {
+				tampon=k;
+				if (trackerSolve) {
+					return 0;
+				}
+				trackerSolve=true;
+			
+			}
+		}
+
+
+		return tampon;
+
+	}
+
+	public boolean test(byte x, byte y, byte chiffre) {
+
+		// TEST LIGNE ET COLONNE
+		for (byte i = 0; i < matrice.length; i++) {
+			if (matrice[x][i] == chiffre) {
+				return false;
+			}
+			if (matrice[i][y] == chiffre) {
+				return false;
+			}
+		}
+
+		// TestSousTableau
+		for (byte i = testPositionSousTableau(x); i < testPositionSousTableau(x)+3; i++) {
+			for (byte j = testPositionSousTableau(y); j < testPositionSousTableau(y)+3; j++) {
+				if (matrice[i][j] == chiffre && (i != x && j != y)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	private byte testPositionSousTableau(byte coordonnee) {
+
+		byte byteervalle1 = 0;
+		byte byteervalle2 = 3;
+		byte byteervalle3 = 6;
+
+		if (coordonnee <= 2)
+			return byteervalle1;
+		if (coordonnee <= 5)
+			return byteervalle2;
+		return byteervalle3;
+
+	}
+
+}

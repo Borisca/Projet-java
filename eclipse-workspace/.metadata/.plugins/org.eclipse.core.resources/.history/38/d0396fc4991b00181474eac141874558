@@ -1,0 +1,11 @@
+
+public class HealthyBurger extends HamburgerClassic{
+
+	private int compteurInstance = -2;
+
+	public HealthyBurger() {
+		super();
+	}
+	
+	
+}

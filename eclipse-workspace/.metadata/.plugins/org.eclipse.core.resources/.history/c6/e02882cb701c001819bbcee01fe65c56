@@ -1,0 +1,25 @@
+package exmatrice;
+
+import javax.swing.JOptionPane;
+
+public class Main {
+	public static void main(String[] args) {
+
+		int[][] tableau = new int[2][25
+		                             ];
+
+		for (int i = 0; i < tableau.length; i++) {
+			for (int j = 0; j < tableau.length; j++) {
+				tableau[i][j] = Integer
+						.parseInt((JOptionPane.showInputDialog(null, "rentrer Valeur", "rentrer valeur")));
+			}
+		}
+		for (int i = 0; i < tableau.length; i++) {
+			for (int j = 0; j < tableau.length; j++) {
+				System.out.print(tableau[i][j]);
+			}
+			System.out.println();
+		}
+
+	}
+}

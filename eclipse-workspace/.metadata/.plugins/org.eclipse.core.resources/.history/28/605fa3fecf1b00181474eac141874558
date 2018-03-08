@@ -1,0 +1,16 @@
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+//		Hamburger h=new HamburgerClassic();
+//		Hamburger k=new HealthyBurger();
+//		Hamburger g=new DeluxeBurger();
+//		g.choisirIngredient();
+//		k.choisirIngredient();
+//		System.out.println(h);
+//		System.out.println(k);
+//		System.out.println(g);
+		Fenetre f=new Fenetre();
+//		
+	}
+}

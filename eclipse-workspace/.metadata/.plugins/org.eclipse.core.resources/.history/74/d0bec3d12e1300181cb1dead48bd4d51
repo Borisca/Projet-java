@@ -1,0 +1,41 @@
+package arraylist.maison;
+
+import java.util.AbstractList;
+
+public class MyArrayList extends AbstractList {
+
+	private Object[] list;
+
+	public MyArrayList() {
+
+	}
+
+	public boolean add(Object obj) {
+
+		if (list == null)
+			list = new Object[1];
+
+		Object[] listTemp = new Object[list.length + 1];
+
+		for (int i = 0; i < list.length; i++) {
+			listTemp[i] = list[i];
+		}
+
+		listTemp[list.length + 1] = obj;
+		list = listTemp;
+
+		return true;
+
+	}
+
+	public Object get(int i) {
+
+		return list[i];
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

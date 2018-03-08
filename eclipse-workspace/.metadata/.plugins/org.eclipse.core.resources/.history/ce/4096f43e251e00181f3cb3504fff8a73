@@ -1,0 +1,15 @@
+
+public class Fibo {
+
+	public static void main(String[] args) {
+		System.out.println(fibo(2));
+	}
+	public static int fibo(int i) {
+		
+	if (i==0||i==1)
+		return i;
+	else
+		return fibo(i-1)+fibo(i-2);
+		
+	}
+}

@@ -1,0 +1,78 @@
+package calcul.salaire;
+
+public class Vacataire extends Employe{
+
+	private double tauxHoraire;
+	private int heures;
+
+	public Vacataire() {
+		super();
+	}
+
+	public Vacataire(String nom, String prenom, String numSS, int tauxHoraire, int heures) {
+		super(nom, prenom, numSS);
+		this.tauxHoraire = tauxHoraire;
+		this.heures = heures;
+	}
+
+	
+	@Override
+	protected double calculerSalaire() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+	public double getTauxHoraire() {
+		return tauxHoraire;
+	}
+
+	public void setTauxHoraire(int tauxHoraire) {
+		this.tauxHoraire = tauxHoraire;
+	}
+
+	public int getHeures() {
+		return heures;
+	}
+
+	public void setHeures(int heures) {
+		this.heures = heures;
+	}
+
+	@Override
+	public double hashCode() {
+		final int prime = 31;
+		double result = super.hashCode();
+		result = prime * result + heures;
+		result = prime * result + tauxHoraire;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vacataire other = (Vacataire) obj;
+		if (heures != other.heures)
+			return false;
+		if (tauxHoraire != other.tauxHoraire)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Vacataire [tauxHoraire=" + tauxHoraire + ", heures=" + heures + "]";
+	}
+
+	
+	
+	
+	
+	
+}

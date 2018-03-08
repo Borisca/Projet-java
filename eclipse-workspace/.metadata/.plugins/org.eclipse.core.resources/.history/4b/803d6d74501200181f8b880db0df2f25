@@ -1,0 +1,57 @@
+package calcul.salaire;
+
+public class Permanent extends Employe{
+
+	private double salairFixe;
+
+	public Permanent(String nom, String prenom, String numSS, double salairFixe) {
+		super(nom, prenom, numSS);
+		this.salairFixe = salairFixe;
+	}
+
+	public Permanent() {
+		super();
+	}
+
+	public double getSalairFixe() {
+		return salairFixe;
+	}
+
+	public void setSalairFixe(double salairFixe) {
+		this.salairFixe = salairFixe;
+	}
+
+	@Override
+	public String toString() {
+		return "Permanent [salairFixe=" + salairFixe + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(salairFixe);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Permanent other = (Permanent) obj;
+		if (Double.doubleToLongBits(salairFixe) != Double.doubleToLongBits(other.salairFixe))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,25 @@
+
+public class Main {
+	public static void main(String[] args) {
+
+		Telephone samsung = new Telephone("Samsung", "Billy", "Joel", 02654664654);
+
+		samsung.stocker("Bon", "Appetit", 021314654);
+		samsung.stocker("Den", "Bob", 023545666);
+//
+//		for (Contact contact : samsung.getContacts()) {
+//			System.out.println(contact);
+//		}
+
+		samsung.modifier("Den", "Bob", "de", "Bo", 034564546454);
+		
+		
+//		System.out.println(samsung.interroger("de"));
+		
+		for (Contact contact : samsung.getContacts()) {
+			System.out.println(contact);
+		}
+		samsung.supprimer("Den", "Bob");
+
+	}
+}

@@ -1,0 +1,11 @@
+
+public class Main {
+	public static void main(String[] args) {
+
+		Telephone samsung=new Telephone("Samsung","Billy","Joel","02654664654");
+		
+		samsung.stocker("Bon", "Appetit", "021314654");
+		samsung.stocker("Den", "Bob", "Yalta");
+		System.out.println(samsung.interroger("Bon"));
+	}
+}

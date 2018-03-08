@@ -1,0 +1,43 @@
+
+public class Contact {
+
+	private String nom, prenom;
+	private long numeroTel;
+
+	public Contact(String nom, String prenom, long numeroTel) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numeroTel = numeroTel;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public long getNumeroTel() {
+		return numeroTel;
+	}
+
+	public void setNumeroTel(long numeroTel) {
+		this.numeroTel = numeroTel;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Nom : %s Prenom : %s  Numero de telephone : %s\n", this.prenom, this.nom, this.numeroTel);
+	}
+
+}

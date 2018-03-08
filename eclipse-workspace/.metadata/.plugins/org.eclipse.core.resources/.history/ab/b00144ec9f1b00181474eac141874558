@@ -1,0 +1,18 @@
+import java.util.List;
+
+public class HamburgerClassic extends Hamburger{
+
+	protected Ingredient [] listIngredients= {Ingredient.CESTTOUT,Ingredient.PAIN,Ingredient.VIANDE,Ingredient.SALADE,Ingredient.TOMATE,Ingredient.CORNICHON,Ingredient.NAVET};
+	private List<Ingredient> ingredients;
+
+
+	
+	public HamburgerClassic(){
+		this.setCompteurInstance(0);
+		this.setNom("Hamburger Classique");
+		ingredients.add(Ingredient.PAIN);
+		ingredients.add(Ingredient.VIANDE);
+		
+	}
+		
+}

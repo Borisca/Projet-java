@@ -1,0 +1,10 @@
+
+public interface InterfaceTel {
+
+	
+	
+	void stocker(String nom,String prenom, int numero);
+	void modifier(String nom,String prenom);
+	void supprimer(String nom,String prenom);
+	Contact interroger(String nom);
+}

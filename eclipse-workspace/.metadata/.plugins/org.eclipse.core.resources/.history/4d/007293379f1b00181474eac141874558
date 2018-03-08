@@ -1,0 +1,13 @@
+
+public class Lacneur {
+
+	public static void main(String[] args) {
+		HamburgerClassic h=new HamburgerClassic();
+		HamburgerClassic k=new HealthyBurger();
+		
+		k.choisirIngredient();
+		
+		System.out.println(k);
+		
+	}
+}

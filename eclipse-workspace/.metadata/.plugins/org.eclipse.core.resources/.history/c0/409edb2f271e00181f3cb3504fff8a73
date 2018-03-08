@@ -1,0 +1,19 @@
+
+public class Fibo {
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 100; i++) {
+			System.out.println(fibo(i));
+		}
+		
+	}
+	public static int fibo(int i) {
+		
+	if (i==0||i==1) {
+		return i;
+	}
+	else
+		return fibo(i-1)+fibo(i-2);
+		
+	}
+}

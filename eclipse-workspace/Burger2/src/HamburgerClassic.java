@@ -1,0 +1,16 @@
+import java.util.List;
+
+public class HamburgerClassic extends Hamburger {
+
+	public HamburgerClassic() {
+		super();
+		this.setCompteurInstance(0);
+		this.setNom("Hamburger Classique");
+		this.addIngredients(Ingredient.PAIN);
+		this.addIngredients(Ingredient.VIANDE);
+		
+
+	}
+
+
+}

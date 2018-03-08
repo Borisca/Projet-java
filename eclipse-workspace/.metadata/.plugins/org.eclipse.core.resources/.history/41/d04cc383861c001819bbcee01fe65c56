@@ -1,0 +1,108 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Telephone implements InterfaceTel {
+
+	private List<Contact> contacts = new ArrayList<>();
+	private String marque, nomProprio, prenomProprio;
+	private long numProprio;
+
+	public Telephone(String marque, String nomProprio, String prenomProprio, long numProprio) {
+		super();
+		this.marque = marque;
+		this.nomProprio = nomProprio;
+		this.prenomProprio = prenomProprio;
+		this.numProprio = numProprio;
+	}
+
+	@Override
+	public void stocker(String nom, String prenom, long numero) {
+
+		contacts.add(new Contact(nom, prenom, numero));
+	}
+
+	@Override
+	public void modifier(String ancienNom, String ancienPrenom, String nouveauNom, String nouveauPrenom,
+			long nouveauNumero) {
+
+		Iterator<Contact> it = contacts.iterator();
+
+		while (it.hasNext()) {
+			Contact c = it.next();
+			if (c.getNom().equalsIgnoreCase(ancienNom) && c.getNom().equalsIgnoreCase(ancienPrenom)) {
+				c.setNom(nouveauNom);
+				c.setPrenom(nouveauPrenom);
+				c.setNumeroTel(nouveauNumero);
+			}
+		}
+
+	}
+
+	@Override
+	public void supprimer(String nom, String prenom) {
+
+		Iterator<Contact> it = contacts.iterator();
+
+		while (it.hasNext()) {
+			Contact c = it.next();
+			if (c.getNom().equalsIgnoreCase(nom) && c.getNom().equalsIgnoreCase(prenom)) {
+				it.remove();
+			}
+		}
+	}
+
+	@Override
+	public Contact interroger(String nom) {
+		Iterator<Contact> it = contacts.iterator();
+
+		while (it.hasNext()) {
+			Contact c = it.next();
+			if (c.getNom().equalsIgnoreCase(nom)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	public String getMarque() {
+		return marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
+
+	public String getNomProprio() {
+		return nomProprio;
+	}
+
+	public void setNomProprio(String nomProprio) {
+		this.nomProprio = nomProprio;
+	}
+
+	public String getPrenomProprio() {
+		return prenomProprio;
+	}
+
+	public void setPrenomProprio(String prenomProprio) {
+		this.prenomProprio = prenomProprio;
+	}
+
+	public long getNumProprio() {
+		return numProprio;
+	}
+
+	public void setNumProprio(long numProprio) {
+		this.numProprio = numProprio;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+
+}

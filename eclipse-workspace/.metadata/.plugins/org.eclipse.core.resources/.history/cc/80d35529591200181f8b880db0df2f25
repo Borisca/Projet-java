@@ -1,0 +1,16 @@
+package calcul.salaire;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Employe perm = new Permanent("Bond", "James", "154165656541", 2500);
+		Employe vac =new Vacataire("Jacky", "Patate", "48646848", 45, 400);
+		Employe com= new Commercial("Joe", "Escobar", "5646546565", 4500000, 0.05);
+
+		System.out.println(perm);
+		System.out.println(vac);
+		System.out.println(com);
+		
+	}
+
+}

@@ -1,0 +1,58 @@
+
+public class Controller {
+
+	private AffichageMatrice display;
+	private MatriceJeu matrice;
+	private Action listener;
+
+	public Controller() {
+		
+
+		display = new AffichageMatrice();
+		matrice = new MatriceJeu();
+		listener=new Action(this);
+		
+
+	}
+
+	public void controlSolve() {
+
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if(matrice.solve(i, j).size()==1)
+					updateAffichage(i,j,matrice.solve(i, j).get(0));
+			}
+		}
+	}
+	
+	public void updateAffichage(int x, int y, int chiffre) {
+		display.update(x,y,chiffre);
+
+		
+	}
+	
+	public AffichageMatrice getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(AffichageMatrice display) {
+		this.display = display;
+	}
+
+	public MatriceJeu getMatrice() {
+		return matrice;
+	}
+
+	public void setMatrice(MatriceJeu matrice) {
+		this.matrice = matrice;
+	}
+
+	public Action getListener() {
+		return listener;
+	}
+
+	public void setListener(Action listener) {
+		this.listener = listener;
+	}
+
+}

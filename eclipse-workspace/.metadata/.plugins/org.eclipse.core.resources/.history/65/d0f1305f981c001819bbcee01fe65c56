@@ -1,0 +1,13 @@
+
+public class Main {
+	public static void main(String[] args) {
+
+		Telephone a=new Telephone("Samsung", "Billy", "Joel", "02654664654");
+a.affichageMenu();
+
+	
+		
+		
+
+	}
+}

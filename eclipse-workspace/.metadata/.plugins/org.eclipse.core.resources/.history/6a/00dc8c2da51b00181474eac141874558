@@ -1,0 +1,12 @@
+public class HamburgerClassic extends Hamburger {
+
+	public HamburgerClassic() {
+		super();
+		this.setCompteurInstance(0);
+		this.setNom("Hamburger Classique");
+		ingredients.add(Ingredient.PAIN);
+		ingredients.add(Ingredient.VIANDE);
+
+	}
+
+}
